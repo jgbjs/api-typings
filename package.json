@@ -1,17 +1,24 @@
 {
-  "name": "miniprogram-api-typings",
+  "name": "@tuhu/miniprogram-api-typings",
   "version": "2.4.2-2",
   "description": "Type definitions for APIs of Wechat Mini Program in TypeScript",
   "main": "./index.d.ts",
   "types": "./index.d.ts",
+  "scripts": {
+    "test":"tsc --rootDir test",
+    "prepublish": "npm run test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wechat-miniprogram/api-typings.git"
   },
-	"author": "wechat-miniprogram",
-	"license": "MIT",
+  "author": "wechat-miniprogram",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/wechat-miniprogram/api-typings/issues"
   },
-  "homepage": "https://github.com/wechat-miniprogram/api-typings#readme"
+  "homepage": "https://github.com/wechat-miniprogram/api-typings#readme",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  }
 }

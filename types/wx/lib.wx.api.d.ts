@@ -8,7 +8,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ***************************************************************************** */
 
-declare namespace wx {
+declare namespace wxNS {
   interface AccessFailCallbackResult {
     /** 错误信息
      *
@@ -12753,7 +12753,7 @@ wx.writeBLECharacteristicValue({
     result: StartRecordSuccessCallbackResult,
   ) => void;
 }
-declare const wx: wx.Wx;
+declare const wx: wxNS.Wx;
 declare function /** [clearInterval(number intervalID)](clearInterval.md)
  *
  * 取消由 setInterval 设置的定时器。 */
