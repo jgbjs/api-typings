@@ -1,11 +1,11 @@
 {
   "name": "@tuhu/miniprogram-api-typings",
-  "version": "2.4.2-2",
+  "version": "2.4.2-2.1",
   "description": "Type definitions for APIs of Wechat Mini Program in TypeScript",
   "main": "./index.d.ts",
   "types": "./index.d.ts",
   "scripts": {
-    "test":"tsc --rootDir test",
+    "test": "tsc --rootDir test",
     "prepublish": "npm run test"
   },
   "repository": {
