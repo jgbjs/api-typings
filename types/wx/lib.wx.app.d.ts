@@ -244,5 +244,15 @@ declare namespace App {
   }
 }
 
+/**
+ * 扩展
+ */
+declare namespace App {
+  interface GetApp {
+    <T extends IAnyObject = IAnyObject>(opts?: IGetAppOption): AppInstance<T> &
+      T;
+  }
+}
+
 declare const App: App.AppConstructor;
 declare const getApp: App.GetApp;

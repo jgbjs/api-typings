@@ -83,7 +83,7 @@ declare namespace Page {
        */
       data: D | Pick<D, K>,
       /** setData引起的界面更新渲染完毕后的回调函数，最低基础库： `1.5.0` */
-      callback?: () => void,
+      callback?: () => void
     ): void;
 
     /** 到当前页面的路径，类型为`String`。最低基础库： `1.2.0` */
@@ -100,7 +100,7 @@ declare namespace Page {
      */
     onLoad?(
       /** 打开当前页面路径中的参数 */
-      query?: { [queryKey: string]: string },
+      query?: { [queryKey: string]: string }
     ): void;
     /** 生命周期回调—监听页面显示
      *
@@ -150,7 +150,7 @@ declare namespace Page {
      */
     onShareAppMessage?(
       /** 分享发起来源参数 */
-      options?: IShareAppMessageOption,
+      options?: IShareAppMessageOption
     ): ICustomShareContent;
     /** 页面滚动触发事件的处理函数
      *
@@ -158,19 +158,19 @@ declare namespace Page {
      */
     onPageScroll?(
       /** 页面滚动参数 */
-      options?: IPageScrollOption,
+      options?: IPageScrollOption
     ): void;
 
     /** 当前是 tab 页时，点击 tab 时触发，最低基础库： `1.9.0` */
     onTabItemTap?(
       /** tab 点击参数 */
-      options?: ITabItemTapOption,
+      options?: ITabItemTapOption
     ): void;
   }
 
   interface PageConstructor {
     <D extends IAnyObject, T extends IAnyObject & PageInstance>(
-      options: PageInstance<D, T> & T,
+      options: PageInstance<D, T> & T
     ): void;
   }
 
@@ -179,6 +179,20 @@ declare namespace Page {
       D,
       T
     > &
+      T)[];
+  }
+}
+
+/**
+ * 扩展
+ */
+declare namespace Page {
+  interface GetCurrentPages {
+    <D extends IAnyObject = {}, T extends IAnyObject = {}>(): (PageInstance<
+      D,
+      T
+    > &
+      Required<PageInstanceBaseProps> &
       T)[];
   }
 }
