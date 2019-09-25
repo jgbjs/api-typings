@@ -1,6 +1,3 @@
-/// <reference types="@types/node" />
-
-
 /*! *****************************************************************************
 Copyright (c) 2019 Tencent, Inc. All rights reserved.
 

@@ -18,10 +18,8 @@
     "url": "https://github.com/wechat-miniprogram/api-typings/issues"
   },
   "homepage": "https://github.com/wechat-miniprogram/api-typings#readme",
-  "dependencies": {
-    "@types/node": "^12.7.7"
-  },
   "devDependencies": {
+    "@types/node": "^12.7.7",
     "dtslint": "^0.9.1",
     "typescript": "^3.5.3"
   },
