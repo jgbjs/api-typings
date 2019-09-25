@@ -11,7 +11,6 @@ declare namespace wxNS {
 
 wx.test();
 
-
 getApp().asdf;
 
 getCurrentPages()[0].data;

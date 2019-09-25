@@ -4,8 +4,9 @@
 
 > [English version](./README-en.md)
 
-[![](https://img.shields.io/npm/v/miniprogram-api-typings.svg?style=flat)](https://www.npmjs.com/package/miniprogram-api-typings)
-[![](https://img.shields.io/github/license/wechat-miniprogram/api-typings.svg)](https://github.com/wechat-miniprogram/miniprogram-api-typings)
+[![已在 NPM 发布](https://img.shields.io/npm/v/miniprogram-api-typings.svg?style=flat)](https://www.npmjs.com/package/miniprogram-api-typings)
+[![MIT 协议](https://img.shields.io/github/license/wechat-miniprogram/api-typings.svg)](https://github.com/wechat-miniprogram/api-typings)
+[![Travis CI 测试状况](https://travis-ci.org/wechat-miniprogram/api-typings.svg?branch=master)](https://travis-ci.org/wechat-miniprogram/api-typings)
 
 微信小程序 API 的 TypeScript 类型定义文件
 
@@ -25,13 +26,22 @@ npm install miniprogram-api-typings@2.4.1
 
 ## 版本
 
-基础库版本|npm 版本|命令
--|-|-
-[v2.6.5](https://developers.weixin.qq.com/miniprogram/dev/framework/release.html#v265-20190402) | [2.6.5-2](https://www.npmjs.com/package/miniprogram-api-typings/v/2.6.5-2) | `npm install miniprogram-api-typings@2.6.5-2`
-[v2.4.2](https://developers.weixin.qq.com/miniprogram/dev/framework/release.html#v242-20181204)|[2.4.2-2](https://www.npmjs.com/package/miniprogram-api-typings/v/2.4.2-2)|`npm install miniprogram-api-typings@2.4.2-2`
-[v2.4.1](https://developers.weixin.qq.com/miniprogram/dev/framework/release.html#v241-20181121)|[2.4.1](https://www.npmjs.com/package/miniprogram-api-typings/v/2.4.1)|`npm install miniprogram-api-typings@2.4.1`
-[v2.4.0](https://developers.weixin.qq.com/miniprogram/dev/framework/release.html#v240-20181105)|[2.4.0-1](https://www.npmjs.com/package/miniprogram-api-typings/v/2.4.0-1)|`npm install miniprogram-api-typings@2.4.0-1`
+所有可用的版本和对应的基础库版本，参考 [VERSIONS.md](https://github.com/wechat-miniprogram/api-typings/blob/master/VERSIONS.md)
+
+## 更新日志
+
+参考 [CHANGELOG.md](https://github.com/wechat-miniprogram/api-typings/blob/master/CHANGELOG.md)
 
 ## 贡献
 
-定义文件是随 [文档](https://developers.weixin.qq.com/miniprogram/dev/index.html) 一起自动生成的，所以所有的 PR 都将 __不会__ 被接受。如果您有 bug 反馈或建议，请提一个 issue 给我们。非常感谢！
+API 的定义文件（`lib.wx.api.d.ts`）是随 [文档](https://developers.weixin.qq.com/miniprogram/dev/index.html) 一起自动生成的，如果发现了 API 接口的定义错误，请提一个 issue 给我们，关于 API 的 PR 将 __不会__ 被接受。
+
+如果有针对页面（`Page`）、自定义组件（`Component`）等接口的 bug 和建议，欢迎 PR 或提一个 issue 给我们。非常感谢！
+
+### 测试
+
+本定义文件使用 [`dtslint`](https://github.com/Microsoft/dtslint) 进行测试，所有的测试样例放在 `test` 目录下。
+
+想执行测试的话，克隆本项目并完成 `npm install --save-dev` 后执行 `npm test` 即可。
+
+如果您发现了不能通过自动化测试的测试样例，可以提交 PR 或者提一个 issue。当然，能通过自动化测试的强有力的测试样例也是欢迎的。
