@@ -13,7 +13,7 @@ declare interface IEventTarget {
   /**
    * 事件源组件上由data-开头的自定义属性组成的集合
    */
-  dataset: IAnyObject;
+  dataset: wxNS.IAnyObject;
 }
 
 /**
@@ -52,7 +52,7 @@ declare interface IBaseEvent {
 /**
  * 自定义事件
  */
-declare interface ICustomEvent<P extends IAnyObject = IAnyObject>
+declare interface ICustomEvent<P extends wxNS.IAnyObject = wxNS.IAnyObject>
   extends IBaseEvent {
   /**
    * 额外的信息
@@ -64,7 +64,7 @@ declare interface ICustomEvent<P extends IAnyObject = IAnyObject>
  * 触摸事件返回
  */
 declare interface ITouchEvent<
-  P extends IAnyObject = IAnyObject,
+  P extends wxNS.IAnyObject = wxNS.IAnyObject,
   T extends IEventTouch = IEventTouch
 > extends ICustomEvent<P> {
   touches: T[];

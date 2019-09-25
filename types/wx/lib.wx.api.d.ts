@@ -1,3 +1,6 @@
+/// <reference types="@types/node" />
+
+
 /*! *****************************************************************************
 Copyright (c) 2019 Tencent, Inc. All rights reserved.
 
@@ -7132,7 +7135,7 @@ this.editorCtx.insertImage({
             /** 事件名称 */
             eventName: string,
             /** 事件参数 */
-            ...args: any
+            ...args: any[]
         ): void
         /** [EventChannel.off(string eventName, function fn)](https://developers.weixin.qq.com/miniprogram/dev/api/route/EventChannel.off.html)
          *
@@ -13270,7 +13273,7 @@ wx.writeBLECharacteristicValue({
     /** 事件监听函数 */
     type EventCallback = (
         /** 触发事件参数 */
-        ...args: any
+        ...args: any[]
     ) => void
     /** 接口调用结束的回调函数（调用成功、失败都会执行） */
     type ExitFullScreenCompleteCallback = (res: GeneralCallbackResult) => void
@@ -15124,11 +15127,7 @@ wx.writeBLECharacteristicValue({
     /** 接口调用成功的回调函数 */
     type WxStopRecordSuccessCallback = (res: GeneralCallbackResult) => void
 }
-declare const console: wxNS.Console
 declare const wx: wxNS.Wx
-declare function require(module: string): any
-declare let module: { exports: any }
-declare let exports: any
 
 /** [clearInterval(number intervalID)](https://developers.weixin.qq.com/miniprogram/dev/api/base/timer/clearInterval.html)
  *
