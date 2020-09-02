@@ -1,4 +1,6 @@
-App({}) // $ExpectType void
+import { expectType } from 'tsd'
+
+expectType<void>(App({}))
 
 App({
   globalData: {
@@ -32,12 +34,18 @@ App({
   },
   onError() {},
   onHide() {
-    this.f(1) // $ExpectType string
+    expectType<string>(this.f(1))
   },
   onPageNotFound(e) {
-    e.isEntryPage // $ExpectType boolean
+    expectType<boolean>(e.isEntryPage)
+  },
+  onUnhandledRejection({ reason, promise }) {
+    expectType<string>(reason)
+    expectType<Promise<any>>(promise)
+  },
+  onThemeChange(res) {
+    expectType<'dark' | 'light'>(res.theme)
   },
 })
 
-// $ExpectType Instance<Record<string, any>>
-getApp()
+expectType<wxNS.App.Instance<Record<string, any>>>(getApp())

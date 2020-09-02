@@ -1,11 +1,23 @@
 /*! *****************************************************************************
-Copyright (c) 2019 Tencent, Inc. All rights reserved.
+Copyright (c) 2020 Tencent, Inc. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
 ***************************************************************************** */
 
 declare namespace wxNS {
@@ -26,7 +38,7 @@ declare namespace wxNS {
         type TrivialInstance = Instance<IAnyObject, IAnyObject>
         interface Constructor {
             <TData extends DataOption, TCustom extends CustomOption>(
-                options: Options<TData, TCustom>,
+                options: Options<TData, TCustom>
             ): void
         }
         interface ILifetime {
@@ -36,13 +48,13 @@ declare namespace wxNS {
              */
             onLoad(
                 /** 打开当前页面路径中的参数 */
-                query: Record<string, string | undefined>,
-            ): void
+                query: Record<string, string | undefined>
+            ): void | Promise<void>
             /** 生命周期回调—监听页面显示
              *
              * 页面显示/切入前台时触发。
              */
-            onShow(): void
+            onShow(): void | Promise<void>
             /** 生命周期回调—监听页面初次渲染完成
        *
        * 页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
@@ -50,17 +62,17 @@ declare namespace wxNS {
 
       * 注意：对界面内容进行设置的 API 如`wx.setNavigationBarTitle`，请在`onReady`之后进行。
       */
-            onReady(): void
+            onReady(): void | Promise<void>
             /** 生命周期回调—监听页面隐藏
              *
              * 页面隐藏/切入后台时触发。 如 `navigateTo` 或底部 `tab` 切换到其他页面，小程序切入后台等。
              */
-            onHide(): void
+            onHide(): void | Promise<void>
             /** 生命周期回调—监听页面卸载
              *
              * 页面卸载时触发。如`redirectTo`或`navigateBack`到其他页面时。
              */
-            onUnload(): void
+            onUnload(): void | Promise<void>
             /** 监听用户下拉动作
              *
              * 监听用户下拉刷新事件。
@@ -68,14 +80,14 @@ declare namespace wxNS {
              * - 可以通过`wx.startPullDownRefresh`触发下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致。
              * - 当处理完数据刷新后，`wx.stopPullDownRefresh`可以停止当前页面的下拉刷新。
              */
-            onPullDownRefresh(): void
+            onPullDownRefresh(): void | Promise<void>
             /** 页面上拉触底事件的处理函数
              *
              * 监听用户上拉触底事件。
              * - 可以在`app.json`的`window`选项中或页面配置中设置触发距离`onReachBottomDistance`。
              * - 在触发距离内滑动期间，本事件只会被触发一次。
              */
-            onReachBottom(): void
+            onReachBottom(): void | Promise<void>
             /** 用户点击右上角转发
              *
              * 监听用户点击页面内转发按钮（`<button>` 组件 `open-type="share"`）或右上角菜单“转发”按钮的行为，并自定义转发内容。
@@ -86,28 +98,36 @@ declare namespace wxNS {
              */
             onShareAppMessage(
                 /** 分享发起来源参数 */
-                options: IShareAppMessageOption,
-            ): ICustomShareContent
+                options: IShareAppMessageOption
+            ): ICustomShareContent | void
             /** 页面滚动触发事件的处理函数
              *
              * 监听用户滑动页面事件。
              */
             onPageScroll(
                 /** 页面滚动参数 */
-                options: IPageScrollOption,
-            ): void
+                options: IPageScrollOption
+            ): void | Promise<void>
 
             /** 当前是 tab 页时，点击 tab 时触发，最低基础库： `1.9.0` */
             onTabItemTap(
                 /** tab 点击参数 */
-                options: ITabItemTapOption,
-            ): void
+                options: ITabItemTapOption
+            ): void | Promise<void>
 
             /** 窗口尺寸改变时触发，最低基础库：`2.4.0` */
             onResize(
                 /** 窗口尺寸参数 */
-                options: IResizeOption,
-            ): void
+                options: IResizeOption
+            ): void | Promise<void>
+
+            /**
+             * 监听用户点击右上角菜单“收藏”按钮的行为，并自定义收藏内容。
+             * 基础库 2.10.3，安卓 7.0.15 版本起支持，iOS 暂不支持
+             */
+            onAddToFavorites(
+                options: IAddToFavoritesOption
+            ): IAddToFavoritesContent
         }
         interface InstanceProperties {
             /** 页面的文件路径 */
@@ -115,6 +135,9 @@ declare namespace wxNS {
 
             /** 到当前页面的路径 */
             route: string
+
+            /** 打开当前页面路径中的参数 */
+            options: Record<string, string | undefined>
         }
 
         type DataOption = Record<string, any>
@@ -122,9 +145,7 @@ declare namespace wxNS {
 
         type InstanceMethods<D extends DataOption> = Component.InstanceMethods<
             D
-        > & {
-            getOpenerEventChannel(): EventChannel,
-        }
+        >
 
         interface Data<D extends DataOption> {
             /** 页面的初始数据
@@ -187,8 +208,22 @@ declare namespace wxNS {
                 /** 变化后的窗口宽度，单位 px */
                 windowWidth: number
                 /** 变化后的窗口高度，单位 px */
-                windowHeight: number,
+                windowHeight: number
             }
+        }
+
+        interface IAddToFavoritesOption {
+            /** 页面中包含web-view组件时，返回当前web-view的url */
+            webviewUrl?: string
+        }
+
+        interface IAddToFavoritesContent {
+            /** 自定义标题，默认值：页面标题或账号名称 */
+            title?: string
+            /** 自定义图片，显示图片长宽比为 1：1，默认值：页面截图 */
+            imageUrl?: string
+            /** 自定义query字段，默认值：当前页面的query */
+            query?: string
         }
 
         interface getCurrentPages {

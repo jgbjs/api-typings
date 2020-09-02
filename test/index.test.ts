@@ -5,12 +5,12 @@ declare namespace wxNS {
     /**
      * add test method
      */
-    test(): any;
+    test(): any
   }
 }
 
-wx.test();
+wx.test()
 
-getApp().asdf;
+getApp().asdf
 
-getCurrentPages()[0].data;
+getCurrentPages()[0].data
