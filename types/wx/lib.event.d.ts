@@ -5,35 +5,35 @@ declare interface IEventTarget {
   /**
    * 事件源组件的id
    */
-  id: string;
+  id: string
   /**
    * 当前组件的类型
    */
-  tagName: string;
+  tagName: string
   /**
    * 事件源组件上由data-开头的自定义属性组成的集合
    */
-  dataset: wxNS.IAnyObject;
+  dataset: wxNS.IAnyObject
 }
 
 /**
  * 触摸事件
  */
 declare interface IEventTouch {
-  clientX: number;
-  clientY: number;
-  identifier: number;
-  pageX: number;
-  pageY: number;
+  clientX: number
+  clientY: number
+  identifier: number
+  pageX: number
+  pageY: number
 }
 
 /**
  * canvas 触摸事件
  */
 declare interface IEventCanvasTouch {
-  identifier: number;
-  x: number;
-  y: number;
+  identifier: number
+  x: number
+  y: number
 }
 
 /**
@@ -43,10 +43,10 @@ declare interface IBaseEvent {
   /**
    * 事件类型
    */
-  type: string;
-  timeStamp: number;
-  target: IEventTarget;
-  currentTarget: IEventTarget;
+  type: string
+  timeStamp: number
+  target: IEventTarget
+  currentTarget: IEventTarget
 }
 
 /**
@@ -57,7 +57,7 @@ declare interface ICustomEvent<P extends wxNS.IAnyObject = wxNS.IAnyObject>
   /**
    * 额外的信息
    */
-  detail: P;
+  detail: P
 }
 
 /**
@@ -67,8 +67,8 @@ declare interface ITouchEvent<
   P extends wxNS.IAnyObject = wxNS.IAnyObject,
   T extends IEventTouch = IEventTouch
 > extends ICustomEvent<P> {
-  touches: T[];
-  changedTouches: T[];
+  touches: T[]
+  changedTouches: T[]
 }
 
 /**
@@ -77,6 +77,6 @@ declare interface ITouchEvent<
 declare interface ICanvasTouchEvent<
   T extends IEventCanvasTouch = IEventCanvasTouch
 > extends IBaseEvent {
-  touches: T[];
-  changedTouches: T[];
+  touches: T[]
+  changedTouches: T[]
 }

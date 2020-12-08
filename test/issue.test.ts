@@ -344,3 +344,50 @@ import WX = wxNS
     },
   })
 }
+
+// https://github.com/wechat-miniprogram/api-typings/issues/154
+{
+  wx.requestPayment({
+    timeStamp: '',
+    nonceStr: '',
+    package: '',
+    signType: 'MD5',
+    paySign: '',
+  })
+  wx.requestPayment({
+    timeStamp: '',
+    nonceStr: '',
+    package: '',
+    signType: 'RSA',
+    paySign: '',
+  })
+}
+
+// https://github.com/wechat-miniprogram/api-typings/issues/157
+{
+  wx.saveFile({
+    tempFilePath: '',
+    success(res) {
+      expectType<string>(res.savedFilePath)
+    }
+  })
+}
+
+// https://github.com/wechat-miniprogram/api-typings/issues/159
+{
+  Page({
+    onShareTimeline() {
+      return {
+        title: '',
+        query: '',
+        imageUrl: '',
+      }
+    },
+  })
+}
+
+// https://github.com/wechat-miniprogram/api-typings/issues/164
+{
+  requirePlugin('myPlugin')
+  requireMiniProgram()
+}
